@@ -14,10 +14,25 @@ export default function App() {
     ]);
   };
 
+  const removeTaskHandler = taskKey => {
+    setTasks(currentTasks => {
+      return currentTasks.filter(task => task.key !== taskKey);
+    });
+  };
+
   return (
     <View style={styles.screen}>
       <TaskInput onAddTask={addTaskHandler} />
-      <FlatList data={tasks} renderItem={itemData => <TaskItem title={itemData.item.value} />} />
+      <FlatList
+        data={tasks}
+        renderItem={itemData => (
+          <TaskItem
+            id={itemData.item.key}
+            title={itemData.item.value}
+            onDelete={removeTaskHandler}
+          />
+        )}
+      />
     </View>
   );
 }
