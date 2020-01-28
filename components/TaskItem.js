@@ -26,4 +26,4 @@ TaskItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default TaskItem;
+export default TaskItem
