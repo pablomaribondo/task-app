@@ -8,8 +8,10 @@
     "eject": "expo eject",
     "lint": "./node_modules/.bin/eslint .",
     "fix": "./node_modules/.bin/eslint . --fix",
-    "lint-report": "./node_modules/.bin/eslint -f json -o ./lint-report.json .",
-    "precommit": "lint-staged"
+    "lint-report": "./node_modules/.bin/eslint -f json -o ./lint-report.json ."
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
