@@ -1,38 +1,44 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 const TaskInput = props => {
+  const { onAddTask } = props;
   const [enteredTask, setEnteredTask] = useState('');
 
-  const taskInputHandler = (enteredText) => {
+  const taskInputHandler = enteredText => {
     setEnteredTask(enteredText);
-  }
+  };
 
   return (
     <View style={styles.inputContainer}>
       <TextInput
-        placeholder='Task'
+        placeholder="Task"
         style={styles.input}
         onChangeText={taskInputHandler}
         value={enteredTask}
       />
-      <Button title="Add" onPress={props.onAddTask.bind(this, enteredTask)} />
+      <Button title="Add" onPress={() => onAddTask(enteredTask)} />
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  input : {
+  input: {
     width: '80%',
     borderColor: 'black',
     borderWidth: 1,
-    padding: 10
-  }
+    padding: 10,
+  },
 });
+
+TaskInput.propTypes = {
+  onAddTask: PropTypes.func.isRequired,
+};
 
 export default TaskInput;

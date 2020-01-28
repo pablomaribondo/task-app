@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 const TaskItem = props => {
+  const { title } = props;
+
   return (
     <View style={styles.listItem}>
-      <Text>{props.title}</Text>
+      <Text>{title}</Text>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -15,8 +18,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: '#ccc',
     borderColor: 'black',
-    borderWidth: 1
-  }
+    borderWidth: 1,
+  },
 });
+
+TaskItem.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default TaskItem;
