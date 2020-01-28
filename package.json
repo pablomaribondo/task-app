@@ -11,7 +11,9 @@
     "lint-report": "./node_modules/.bin/eslint -f json -o ./lint-report.json ."
   },
   "husky": {
-    "pre-commit": "lint-staged"
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,jsx}": [

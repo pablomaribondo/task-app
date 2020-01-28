@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 const TaskItem = props => {
-  const { title } = props
+  const { title } = props;
 
   return (
     <View style={styles.listItem}>
@@ -26,4 +26,4 @@ TaskItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default TaskItem
+export default TaskItem;
